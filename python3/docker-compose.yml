@@ -1,0 +1,9 @@
+version: '3'
+services:
+  python3:
+    build: .
+    image: 'python3-image'
+    container_name: 'python3'
+    tty: true
+    volumes:
+      - ./src_local:/src_container
