@@ -15,9 +15,10 @@
 # イメージ構築・コンテナ構築・コンテナ起動。
 docker compose up -d
 
-# Linuxコマンドを使用して.pyファイルを実行。bashの終了。
+# Linuxコマンドを使用して.pyファイルを実行。何かをファイル出力する。bashの終了。
 docker compose exec python3 bash
 python src_container/test.py
+echo test > src_container/out.txt
 exit
 
 # コンテナ停止・コンテナ破棄・イメージの破棄。
