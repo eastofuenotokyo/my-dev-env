@@ -25,3 +25,39 @@ exit
 docker compose down
 docker image rm python3-image
 ```
+
+### 2-2 MySQL
+```
+# イメージ構築・コンテナ構築・コンテナ起動。
+docker compose up -d
+
+# Linuxコマンドを使用してMySQLにログイン。mydbというデータベースを作成。
+docker compose exec db bash
+mysql -u root -p12345678
+create database mydb;
+quit
+exit
+
+# A5:SQL mk-2を使用して外部から接続する場合。
+#   IPアドレスをWSL2側で調べて接続先に指定する必要がある。
+#   localhostを指定するのは誤り。
+
+# コンテナ停止・コンテナ破棄・イメージの破棄。
+docker compose down
+docker image rm mysql_db
+```
+
+### 2-3 Apache
+1. htdocsフォルダ配下にWebサーバに配置する資源を格納する。あとから置いても構わない。
+2. コマンドを実行する。
+
+```
+# イメージ構築・コンテナ構築・コンテナ起動。
+docker compose up -d
+
+# Windows側のブラウザから表示確認をする。 http://localhost:8080/
+
+# コンテナ停止・コンテナ破棄・イメージの破棄。
+docker compose down
+docker image rm apache_httpd
+```
